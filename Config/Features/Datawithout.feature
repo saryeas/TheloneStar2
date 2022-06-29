@@ -1,5 +1,9 @@
 Feature: Amazon 
 
+ In order to verify search 
+ as a register uger 
+ i want to visit amazon best seller web page 
+
 @nodata
 Scenario:
 

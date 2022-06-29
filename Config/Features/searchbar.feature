@@ -1,5 +1,8 @@
 Feature: Dell search bar validation
 
+In order to  
+as a uger 
+i want to visit Dell xps
 
 @search
 Scenario:

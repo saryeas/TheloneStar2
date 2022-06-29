@@ -1,4 +1,8 @@
 Feature: Facebook sign up
+
+In order to verify search
+as a uger 
+i want to Facebook sign up 
 @select3
 Scenario Outline:
 Given user visiting facebook url

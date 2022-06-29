@@ -1,13 +1,13 @@
 package com.nexttech.stepdefs;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import com.nexttech.pageobjectmodel.SelectPOM;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -20,28 +20,35 @@ public class select {
 	public void user_visiting_Amazon_home_page() throws Throwable {
 		
 		//how to open browser
-	System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver_win32\\chromedriver.exe");
-		        driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver_win32 (1)\\chromedriver.exe");
+        driver = new ChromeDriver();
 				
 			//soft wait
 	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 				  
-		    //how to open url  / driver.get method
-	 driver.get("https://www.amazon.com");
+		   //how to open url/ driver.get method
+	driver.get("https://www.amazon.com");
 			       
 			 //how to maximize the browser
-	 driver.manage().window().maximize();
+	driver.manage().window().maximize();
 					
 				    //heard wait
 				   Thread.sleep(2000);
-				  }
+    }
 
 	
 	@When("^user select Apps & Games and click search button$")
 	public void user_select_Apps_Games_and_click_search_button() throws Throwable {
+		SelectPOM obj=new SelectPOM(driver);
+		
+		Select dropdown = new Select (obj.click_search);
+		dropdown.selectByVisibleText( "Apps & Games");
 	
-		Select object = new Select (driver.findElement(By.id("search")));
-	    object.selectByVisibleText("Apps & Games");
+		//Select object = new Select (driver.findElement(By.id("search")));
+	    //object.selectByVisibleText("Apps & Games");
+		
+	    //soft wait
+	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		
 		
 	//	Select set = new Select (click_searchDropdown);
@@ -51,8 +58,9 @@ public class select {
 	}
 
 		
-@Then("^user will redirect to  Apps & Games page$")
+    @Then("^user will redirect to  Apps & Games page$")
 	public void user_will_redirect_to_Apps_Games_page() throws Throwable {
+    	driver.quit();
 
 }
 }

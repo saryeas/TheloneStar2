@@ -4,10 +4,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPOM {
+public class LoginPOM2 {
+	
 	WebDriver driver;
-	 
-	public   LoginPOM(WebDriver driver) {
+	 public   LoginPOM2(WebDriver driver) {
 	  this.driver=driver;
 	 PageFactory.initElements(driver, this);
 	 }
@@ -39,10 +39,23 @@ public class LoginPOM {
 	 public WebElement signIn() {
 	 return click_signIn;
 	 }
+	 
+	 
+	  @FindBy(xpath="//*[@id=\"tdb4\"]/span")
+	 WebElement click_logoff;
+	 public WebElement logoff() {
+	 return click_logoff;
+	 
+	 
+	
+	 }
 	 }
 	
-	
+
 	 
 	 
 	 
+
+
+
 

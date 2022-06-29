@@ -1,6 +1,5 @@
 package com.nexttech.stepdefs;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,33 +12,29 @@ import cucumber.api.java.en.When;
 public class facebook {
 	WebDriver driver;//global variable
 	
-	
 	@Given("^user visiting facebook url$")
 	public void user_visiting_facebook_url() throws Throwable {
 	    //how to open browser
-		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver_win32 (2)\\chromedriver.exe");
         driver = new ChromeDriver();
 		
 		//soft wait
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		  
 		  //how to open url      driver.get method
-		 driver.get("https://www.facebook.com/r.php");
+	 driver.get("https://www.facebook.com/r.php");
 	       
 	      //how to maximize the browser
-		  driver.manage().window().maximize();
-			
-		   //heard wait
-		   Thread.sleep(2000);
-	   
-	}
+	 driver.manage().window().maximize();
+			 }
 
 @When("^user enter \"([^\"]*)\" and\"([^\"]*)\" and valid \"([^\"]*)\" and \"([^\"]*)\"$")
 public void user_enter_and_and_valid_and(String arg1, String arg2, String arg3, String arg4) throws Throwable {
     
-		 facebookPom  sel = new  facebookPom (driver);
-				 
-			sel.firstname().sendKeys(arg1);	 
+		 
+	facebookPom  sel = new  facebookPom (driver);
+			
+	sel.firstname().sendKeys(arg1);	 
 			sel.lastname().sendKeys(arg2);
 			sel.email().sendKeys(arg3);
 			sel.password().sendKeys(arg4);
@@ -47,34 +42,47 @@ public void user_enter_and_and_valid_and(String arg1, String arg2, String arg3, 
 
 @Then("^user select dropdown Month and dropdown Day and dropdown Year$")
 public void user_select_dropdown_Month_and_dropdown_Day_and_dropdown_Year() throws Throwable {
-	facebookPom obj = new facebookPom(driver);
+	
+	            facebookPom obj = new facebookPom(driver);
     
-		    try {
+		    
 				Select dropdown = new Select (obj.click_month);
 				dropdown.selectByIndex(5);
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-			}
-		   
-		    try {
-				Select dropdown1 = new Select (obj.click_day);
-				dropdown1.selectByIndex(5);
-			} catch (Exception e) {
 			
-				e.printStackTrace();
-			}
-		   
-		    try {
-				Select dropdown2 = new Select (obj.click_year);
-				dropdown2.selectByVisibleText("1999");
-				driver.quit();
-			} catch (Exception e) {
+		    
+		    	Select dropdown1 = new Select (obj.click_day);
+				dropdown1.selectByValue("6");
+			
+		    			
+		        //Select dropdown2 = new Select (obj.click_year);
+				//dropdown2.selectByVisibleText("1999");
 				
-				e.printStackTrace();
+		  			
+					
+		
+				
+				
+			
+				
+				
+				
+			
+				
+				
+				
+				
+				
+				
+				
+				
+				//	obj.Selectyear().click();
+				//heard wait
+				// Thread.sleep(2000);
+				driver.quit();
+			
 			}
 		
-		 
+		   
 		
 		
 		
@@ -91,4 +99,3 @@ public void user_select_dropdown_Month_and_dropdown_Day_and_dropdown_Year() thro
 		
 	    
 	}
-}
